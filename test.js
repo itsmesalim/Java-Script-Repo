@@ -5,3 +5,4 @@ function productBudget(args = {product1, product2, product3, product4, product5}
     }
 }
 productBudget(400, 340, 290, 499, 589);    
+
