@@ -195,7 +195,7 @@ console.log(student3["computer"]);
 console.log(student3["maths"]);
 console.log(student3["biology"]);
 
-//for in loop: we print this all data of student3 object.
+//for in loop: it is a shortcut way to access all members of object. we print this all data of student3 object.
 for(let prop in student3){
     console.log(prop, student3[prop]);
 
@@ -205,3 +205,30 @@ for(let prop in student3){
     }
 }
 console.log(student3);
+
+//Distructuring Objects
+var simpleObject = {
+    firstName: "samad",
+    lastName: "khan",
+    age: 45
+}
+
+// now I assigned this all properties to another variables
+/*
+var fn = simpleObject.firstName;
+var ln = simpleObject.lastName;
+var g = simpleObject.age;
+My name is Adnan Shahzad. ok ok no problem. what is your name?
+console.log(fn);
+console.log(ln);
+console.log(g);
+*/
+
+// now I use another shortcut way to access the members of object which is called Distructuring Objects.
+console.log("\n Destructuring");
+var {firstName: fn, lastName: ln, age: g} = simpleObject;
+console.log(fn);
+console.log(ln);
+console.log(g);
+
+ 
