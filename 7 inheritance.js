@@ -113,10 +113,61 @@ console.log(logInData);
 
 console.log("\n Lexical Environment and Scope chain");
 
-var a = 10;
-{
-    console.log("scope a");
-    {
-        console.log("scope b");
+var x = 10;
+console.log(x);
+function mfun1(){
+    var y = 20;
+    console.log(x,y);
+
+    function mfunc2(){
+        var z = 30;
+        console.log(x,y,z);
     }
+    mfunc2();
 }
+mfun1();
+
+//Clouseres
+console.log("\n Clouseres and Encapsulation");
+var bankAccount = function(){
+    var accountBalance = 1000;
+
+    var somePrivate = function(){
+
+    }
+
+    var deposit = function(depositAmount){
+        accountBalance = accountBalance + depositAmount;
+        //return `Account Balance after Deposit: ${accountBalance}`;
+    }
+
+    var withdraw = function(withdrawAmmount){
+        accountBalance = accountBalance - withdrawAmmount;
+       // return `Account Balance after Withdraw: ${accountBalance}`;
+    }
+
+    var getCuruntBalance = function(){
+        
+        // return `my curunt balance is: ${accountBalance}`;
+        return accountBalance;
+    }
+
+    return {deposit, withdraw, getCuruntBalance};
+}
+var firstAccount = bankAccount();
+var secondAccount = bankAccount();
+console.log(`Initial first Account Balance: ${firstAccount.getCuruntBalance()}`); //1000
+console.log(`Initial second Account Balance: ${secondAccount.getCuruntBalance()}`); //1000
+
+firstAccount.deposit(200);
+console.log(`First Account Balance after Deposit: ${firstAccount.getCuruntBalance()}`);  //1200
+
+secondAccount.deposit(100);
+console.log(`Second Account Balance after Deposit: ${secondAccount.getCuruntBalance()}`);
+
+firstAccount.withdraw(50);
+console.log(`First Account Balance after Withdraw: ${firstAccount.getCuruntBalance()}`);  //1150
+
+secondAccount.withdraw(300);
+console.log(`Second Account Balance after Withdraw: ${secondAccount.getCuruntBalance()}`);
+
